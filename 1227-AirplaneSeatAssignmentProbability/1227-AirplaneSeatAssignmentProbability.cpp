@@ -1,8 +1,9 @@
-// Last updated: 7/27/2026, 3:22:28 PM
+// Last updated: 7/27/2026, 3:36:34 PM
 1class Solution {
 2public:
-3    double nthPersonGetsNthSeat(int n) {
-4        if(n==1) return 1;
-5        else return 0.5;
-6    }
-7};
+3    int maxProduct(vector<int>& nums) {
+4        
+5        sort(nums.begin(), nums.end());
+6        return ((nums[nums.size()-1]-1)*(nums[nums.size()-2]-1));
+7    }
+8};
