@@ -1,28 +1,21 @@
-// Last updated: 7/30/2026, 3:26:55 PM
+// Last updated: 7/30/2026, 3:27:26 PM
 1class Solution {
 2public:
-3    int compress(vector<char>& chars) {
-4        int i = 0, idx = 0, n = chars.size();
-5
-6        while(i < n){
-7            char curr = chars[i];
-8            int count = 0;
-9
-10            while(i < n && chars[i] == curr){
-11                count++;
-12                i++;
-13            }
-14
-15            chars[idx++] = curr;
-16
-17            if(count > 1){
-18                string cnt = to_string(count);
-19                for(char c: cnt){
-20                    chars[idx++] = c;
-21                }
-22            }
-23        }
-24        
-25        return idx;
-26    }
-27};
+3    string compressedString(string word) {
+4        string comp = "";
+5        int cnt = 1, n = word.size();
+6        char ch = word[0];
+7        for(int i=1;i<n;i++){
+8            if(word[i] == ch && cnt < 9)cnt++;
+9            else{
+10                comp.push_back(cnt+'0');
+11                comp.push_back(ch);
+12                ch = word[i];
+13                cnt = 1;
+14            }
+15        }
+16        comp.push_back(cnt+'0');
+17        comp.push_back(ch);
+18        return comp;
+19    }
+20};
