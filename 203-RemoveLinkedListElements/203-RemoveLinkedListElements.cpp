@@ -1,4 +1,4 @@
-// Last updated: 8/10/2026, 3:43:04 PM
+// Last updated: 8/10/2026, 5:57:07 PM
 1/**
 2 * Definition for singly-linked list.
 3 * struct ListNode {
@@ -11,12 +11,14 @@
 10 */
 11class Solution {
 12public:
-13    int getDecimalValue(ListNode* head) {
-14         int num = 0;
-15        while (head != nullptr) {
-16            num = (num << 1) | head->val;
-17            head = head->next;
-18        }
-19        return num;
-20    }
-21};
+13    ListNode* removeElements(ListNode* head, int val) {
+14        ListNode *temp = new ListNode(0);
+15        temp->next = head;
+16        ListNode *curr = temp;
+17        while(curr->next != 0 ){
+18            if(curr->next->val == val) curr->next = curr->next->next;
+19            else curr = curr->next;
+20        }
+21        return temp->next;
+22    }
+23};
